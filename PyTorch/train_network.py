@@ -29,7 +29,7 @@ class Train_Network(object):
         loss = 0.0
 
         hidden = self.manhattan_lstm.init_hidden(batch_size)
-        output_scores = self.manhattan_lstm([sequences_1, sequences_2], hidden).view(-1)
+        output_scores = self.manhattan_lstm((sequences_1, sequences_2), hidden).view(-1)
 
         loss += criterion(output_scores, similarity_scores)
 
