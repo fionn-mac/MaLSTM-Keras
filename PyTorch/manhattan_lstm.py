@@ -69,7 +69,8 @@ class Manhattan_LSTM(nn.Module):
 
     def init_hidden(self, batch_size):
         # Hidden dimensionality : 2 (h_0, c_0) x Num. Layers * Num. Directions x Batch Size x Hidden Size
-        result = torch.zeros(2, 1, batch_size, self.hidden_size)
+        # result = torch.zeros(2, 1, batch_size, self.hidden_size)
+        result = (torch.zeros(1, batch_size, self.hidden_size), torch.zeros(1, batch_size, self.hidden_size))
 
         if self.use_cuda: return result.cuda()
         else: return result
